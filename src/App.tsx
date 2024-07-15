@@ -28,13 +28,13 @@ const IsEven = (props: { base: number }) => {
   return <div>{isEven ? "even" : "odd"}</div>;
 };
 
-const Example = (props: { base: number }) => {
+const Example = (props: { symbolId: number }) => {
   return (
     <div>
       <ShowRelation />
       <Increment />
-      <Value base={props.base} />
-      <IsEven base={props.base} />
+      <Value base={props.symbolId} />
+      <IsEven base={props.symbolId} />
       <hr />
     </div>
   );
@@ -44,7 +44,11 @@ function App() {
   return (
     <Subscribe>
       <Related>
-        <Example base={10} />
+        <Example symbolId={10} />
+      </Related>
+
+      <Related>
+        <Example symbolId={10} />
       </Related>
 
       <Related>
@@ -52,17 +56,16 @@ function App() {
         <Increment />
         <hr />
         <Value base={10} />
-        <IsEven base={100} />
+        <IsEven base={10} />
         <hr />
 
-        <Value base={20} />
-        <IsEven base={20} />
+        <Value base={100} />
+        <IsEven base={100} />
         <hr />
       </Related>
 
-      <Example base={10} />
-
-      <Example base={10} />
+      <Example symbolId={10} />
+      <Example symbolId={10} />
     </Subscribe>
   );
 }
