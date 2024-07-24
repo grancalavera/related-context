@@ -1,7 +1,5 @@
-import { createContext, useId } from "react";
-
-export const RelatedContext = createContext<string | undefined>(undefined);
-
+import { useId } from "react";
+import { RelatedContext } from "./relation";
 export const Related = ({ children }: { children: React.ReactNode }) => (
   <RelatedContext.Provider value={useId()}>{children}</RelatedContext.Provider>
 );

@@ -1,8 +1,8 @@
 import { Subscribe } from "@react-rxjs/core";
 import "./App.css";
 import { Related } from "./Related";
-import { useIncrement, useIncremented, useIsEven } from "./state";
-import { useRelation } from "./useRelation";
+import { useRelation } from "./relation";
+import { useIncrementer, useIncrement, useIsEven } from "./state";
 
 const ShowRelation = () => {
   const relation = useRelation();
@@ -10,16 +10,16 @@ const ShowRelation = () => {
 };
 
 const Increment = () => {
-  const increment = useIncrement();
+  const increment = useIncrementer();
   return (
     <div>
-      <button onClick={increment}>increment</button>
+      <button onClick={() => increment()}>increment</button>
     </div>
   );
 };
 
 const Value = (props: { base: number }) => {
-  const value = useIncremented(props.base);
+  const value = useIncrement(props.base);
   return <div>{value}</div>;
 };
 
