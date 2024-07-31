@@ -17,11 +17,11 @@ export const [increment$, useIncrementer] = createRelatedSignal();
  */
 const sequence = (n: number) => (n * (n + 1)) / 2;
 
-const state$ = state((relation: string | undefined, base: number) =>
+const state$ = state((relation: string | undefined, symbol: number) =>
   increment$.pipe(
     selectRelation(relation),
-    scan((_x, _y, i) => sequence(base + i + 1), sequence(base)),
-    startWith(sequence(base))
+    scan((_x, _y, i) => sequence(symbol + i + 1), sequence(symbol)),
+    startWith(sequence(symbol))
   )
 );
 

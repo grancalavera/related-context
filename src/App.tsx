@@ -30,7 +30,7 @@ const IsEven = (props: { base: number }) => {
 
 const Example = (props: { symbolId: number }) => {
   return (
-    <div>
+    <div style={{ border: "5px solid pink", marginBottom: 20, padding: 5 }}>
       <ShowRelation />
       <Increment />
       <Value base={props.symbolId} />
